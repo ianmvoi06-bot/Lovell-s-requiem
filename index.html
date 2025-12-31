@@ -13,10 +13,24 @@ title: Lovell's Requiem
 <body>
   {% include header.html %}
 
-  <div class="post">
-    <h1>Lovell's Requiem</h1>
-    <p class="intro-line">A quiet archive of loss, love, and becoming.</p>
-    <p>Click on "📜" above to see the poems.</p>
-  </div>
+  <main class="container">
+    <section class="intro">
+      <h1>Lovell's Requiem</h1>
+      <p class="intro-line">A quiet archive of loss, love, and becoming.</p>
+      <p>Scroll down or click 📜 to explore the poems.</p>
+    </section>
+
+    <section class="latest-poem">
+      <h2>Latest Poem</h2>
+      {% assign latest = site.posts | first %}
+      <article>
+        <h3>{{ latest.title }}</h3>
+        <div class="poem-content">
+          {{ latest.content | markdownify }}
+        </div>
+        <a href="{{ latest.url }}" class="read-more">Read full</a>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
